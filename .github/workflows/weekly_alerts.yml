@@ -29,10 +29,14 @@ jobs:
       - name: Evaluate alerts
         run: python scripts/evaluate_alerts.py
 
+      - name: Generate risk state
+        run: python scripts/state_logic.py
+
       - name: Copy data to docs for GitHub Pages
         run: |
           mkdir -p docs/data
           cp data/output/alerts_snapshot.csv docs/data/alerts_snapshot.csv
+          cp data/output/state_snapshot.json docs/data/state_snapshot.json
 
       - name: Commit updated data
         run: |

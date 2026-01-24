@@ -5,26 +5,38 @@
   <title>Market Risk Monitor</title>
 </head>
 <body>
-  <h1>Market Risk Alerts</h1>
 
-  <pre id="data">Loading market data…</pre>
+<h1>Market Risk Monitor</h1>
 
-  <script>
-    fetch('./data/alerts_snapshot.csv')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to load data');
-        }
-        return response.text();
-      })
-      .then(text => {
-        document.getElementById('data').textContent = text;
-      })
-      .catch(err => {
-        document.getElementById('data').textContent =
-          'Data unavailable. Please check back later.';
-        console.error(err);
-      });
-  </script>
+<section id="banner">
+  <h2 id="state">Loading…</h2>
+  <p id="summary"></p>
+</section>
+
+<hr>
+
+<section id="disclaimer">
+  <strong>Disclaimer:</strong>
+  This site is for informational purposes only and does not constitute investment advice.
+</section>
+
+<section id="contact">
+  <strong>Contact:</strong>
+  <a href="mailto:you@example.com">you@example.com</a>
+</section>
+
+<script>
+fetch('./data/state_snapshot.json')
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById('state').textContent =
+      `MARKET RISK STATE: ${d.state}${d.severity ? ' (Severity ' + d.severity + ')' : ''}`;
+    document.getElementById('summary').textContent = d.summary;
+  })
+  .catch(() => {
+    document.getElementById('state').textContent = 'State unavailable';
+  });
+</script>
+
 </body>
 </html>
