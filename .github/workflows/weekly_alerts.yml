@@ -37,6 +37,7 @@ jobs:
           mkdir -p docs/data
           cp data/output/alerts_snapshot.csv docs/data/alerts_snapshot.csv
           cp data/output/state_snapshot.json docs/data/state_snapshot.json
+          cp data/history/state_history.csv docs/data/state_history.csv
 
       - name: Commit updated data
         run: |
