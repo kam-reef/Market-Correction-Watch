@@ -2,8 +2,8 @@
   "date": "2026-01-24",
   "state": "NOMINAL",
   "severity": 0,
-  "weeks_in_state": 2,
+  "weeks_in_state": 3,
   "downturn_alerts": 0,
   "recovery_alerts": 1,
-  "summary": "No sustained risk signals have been active over the last 2 weeks."
+  "summary": "No sustained risk signals have been active over the last 3 weeks."
 }
