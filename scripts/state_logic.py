@@ -85,18 +85,23 @@ def main():
         severity = 0
 
     previous_weeks = weeks_in_state(history, state)
-    weeks = previous_weeks + 1
+weeks = previous_weeks + 1
 
-    snapshot = {
-        "date": str(date.today()),
-        "state": state,
-        "severity": severity,
-        "weeks_in_state": weeks,
-        "downturn_alerts": downturn_count,
-        "recovery_alerts": recovery_count,
-        week_label = "week" if weeks == 1 else "weeks"
-        summary = random.choice(BANNER_TEXT[state]).format(weeks=f"{weeks} {week_label}"),
-    }
+week_label = "week" if weeks == 1 else "weeks"
+
+summary = random.choice(BANNER_TEXT[state]).format(
+    weeks=f"{weeks} {week_label}"
+)
+
+snapshot = {
+    "date": str(date.today()),
+    "state": state,
+    "severity": severity,
+    "weeks_in_state": weeks,
+    "downturn_alerts": downturn_count,
+    "recovery_alerts": recovery_count,
+    "summary": summary,
+}
 
     # Write snapshot JSON
     with open(OUTPUT / "state_snapshot.json", "w") as f:
