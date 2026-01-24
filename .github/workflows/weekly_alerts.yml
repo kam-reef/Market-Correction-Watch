@@ -5,6 +5,10 @@ on:
     - cron: '0 12 * * 1'
   workflow_dispatch:
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   run-alerts:
     runs-on: ubuntu-latest
