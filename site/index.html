@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Market Risk Monitor</title>
+</head>
+<body>
+  <h1>Market Risk Alerts</h1>
+  <pre id="data">Loading...</pre>
+
+  <script>
+    fetch('../data/output/alerts_snapshot.csv')
+      .then(r => r.text())
+      .then(t => document.getElementById('data').textContent = t);
+  </script>
+</body>
+</html>
