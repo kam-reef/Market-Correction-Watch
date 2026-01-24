@@ -2,9 +2,9 @@
   "date": "2026-01-24",
   "state": "NOMINAL",
   "severity": 0,
-  "weeks_in_state": 4,
-  "downturn_alerts": 0,
-  "recovery_alerts": 1,
-  "summary": "No sustained risk signals have been active over the last 4 weeks.",
-  "override": false
+  "weeks_in_state": null,
+  "downturn_alerts": null,
+  "recovery_alerts": null,
+  "summary": "Manual override enabled. Sorry, automated signals are temporarily paused.",
+  "override": true
 }
