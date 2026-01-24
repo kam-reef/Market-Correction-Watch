@@ -41,3 +41,10 @@ jobs:
           git add data docs
           git commit -m "Update market alert snapshot" || exit 0
           git push
+      
+      - name: Debug copied file
+        run: |
+          echo "=== docs/data ==="
+          ls -l docs/data
+          echo "=== file contents ==="
+          cat docs/data/alerts_snapshot.csv
