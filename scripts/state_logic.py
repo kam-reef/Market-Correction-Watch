@@ -94,7 +94,8 @@ def main():
         "weeks_in_state": weeks,
         "downturn_alerts": downturn_count,
         "recovery_alerts": recovery_count,
-        "summary": random.choice(BANNER_TEXT[state]).format(weeks=weeks),
+        week_label = "week" if weeks == 1 else "weeks"
+        summary = random.choice(BANNER_TEXT[state]).format(weeks=f"{weeks} {week_label}"),
     }
 
     # Write snapshot JSON
