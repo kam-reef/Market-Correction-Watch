@@ -51,6 +51,19 @@ BANNER_TEXT = {
     ],
 }
 
+def load_override():
+    override_path = Path("config/override.json")
+    if not override_path.exists():
+        return None
+
+    with open(override_path) as f:
+        override = json.load(f)
+
+    if override.get("enabled"):
+        return override
+
+    return None
+
 def load_alerts():
     df = pd.read_csv("data/output/alerts_snapshot.csv")
     return {row["alert"]: bool(row["triggered"]) for _, row in df.iterrows()}
@@ -115,6 +128,26 @@ def create_github_issue(title, body):
         print(response.text)
 
 def main():
+    override = load_override()
+
+    if override:
+        snapshot = {
+            "date": str(date.today()),
+            "state": override["state"],
+            "severity": override["severity"],
+            "weeks_in_state": None,
+            "downturn_alerts": None,
+            "recovery_alerts": None,
+            "summary": override["message"],
+            "override": True,
+        }
+
+        with open(OUTPUT / "state_snapshot.json", "w") as f:
+            json.dump(snapshot, f, indent=2)
+
+        print("⚠️  Manual override active — automated signals skipped")
+        return
+
     alerts = load_alerts()
     history = load_history()
 
@@ -149,6 +182,7 @@ def main():
         "downturn_alerts": downturn_count,
         "recovery_alerts": recovery_count,
         "summary": summary,
+        "override": False,
     }
 
     # Write snapshot JSON

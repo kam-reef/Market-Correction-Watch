@@ -41,10 +41,18 @@
 fetch('./data/state_snapshot.json')
   .then(r => r.json())
   .then(d => {
-    const severityText = d.severity ? ` (Severity ${d.severity})` : '';
-    document.getElementById('state').textContent =
-      `MARKET RISK STATE: ${d.state}${severityText}`;
-    document.getElementById('summary').textContent = d.summary;
+    const stateEl = document.getElementById('state');
+    const summaryEl = document.getElementById('summary');
+
+    if (d.override) {
+      stateEl.textContent = `MARKET RISK STATE: ${d.state} (MANUAL OVERRIDE)`;
+      summaryEl.textContent = d.summary;
+    } else {
+      const severityText = d.severity ? ` (Severity ${d.severity})` : '';
+      stateEl.textContent =
+        `MARKET RISK STATE: ${d.state}${severityText}`;
+      summaryEl.textContent = d.summary;
+    }
   })
   .catch(() => {
     document.getElementById('state').textContent = 'State unavailable';
