@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "state": "NOMINAL",
   "severity": 0,
   "message": "Manual override enabled. Sorry, automated signals are temporarily paused."
