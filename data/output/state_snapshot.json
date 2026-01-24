@@ -1,0 +1,8 @@
+{
+  "date": "2026-01-24",
+  "state": "NOMINAL",
+  "severity": 0,
+  "downturn_alerts": 0,
+  "recovery_alerts": 1,
+  "summary": "No sustained risk signals are currently active."
+}
