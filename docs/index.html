@@ -31,7 +31,7 @@ fetch('./data/state_snapshot.json')
   .then(d => {
     document.getElementById('state').textContent =
       `MARKET RISK STATE: ${d.state}${d.severity ? ' (Severity ' + d.severity + ')' : ''}`;
-    document.getElementById('summary').textContent = d.summary;
+    document.getElementById('summary').textContent = d.summary + ` (Week ${d.weeks_in_state})`;
   })
   .catch(() => {
     document.getElementById('state').textContent = 'State unavailable';
