@@ -4,6 +4,8 @@ import random
 import csv
 from pathlib import Path
 import pandas as pd
+import os
+import requests
 
 # Paths
 OUTPUT = Path("data/output")
@@ -68,6 +70,50 @@ def weeks_in_state(history, state):
             break
     return count
 
+def should_create_issue(history, current_state, current_severity):
+    if not history:
+        return False, None
+
+    last = history[-1]
+    prev_state = last["state"]
+    prev_severity = int(last["severity"])
+
+    if current_state != prev_state:
+        return True, f"State change: {prev_state} → {current_state}"
+
+    if current_severity > prev_severity:
+        return True, f"Severity increase within {current_state}"
+
+    return False, None
+
+def create_github_issue(title, body):
+    token = os.environ.get("GITHUB_TOKEN")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+
+    if not token or not repo:
+        print("ℹ️  GitHub token or repository not available; skipping issue creation")
+        return
+
+    url = f"https://api.github.com/repos/{repo}/issues"
+
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+    }
+
+    payload = {
+        "title": title,
+        "body": body,
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+
+    if response.status_code == 201:
+        print("✅ GitHub issue created")
+    else:
+        print(f"⚠️  Failed to create issue: {response.status_code}")
+        print(response.text)
+
 def main():
     alerts = load_alerts()
     history = load_history()
@@ -123,6 +169,31 @@ def main():
             "state": state,
             "severity": severity,
         })
+
+        # ---- GitHub Issue Logic ----
+    create_issue, reason = should_create_issue(history, state, severity)
+
+    if create_issue:
+        title = f"Market Risk State Update: {state} ({snapshot['date']})"
+
+        body = f"""## Market Risk State Update
+
+**State:** {state}  
+**Severity:** {severity}  
+**Weeks in State:** {weeks}
+
+**Reason:** {reason}
+
+**Summary:**  
+{summary}
+
+---
+
+This issue was generated automatically by the Market Risk Monitor.
+It is informational only and does not constitute investment advice.
+"""
+
+        create_github_issue(title, body)
 
     print(f"✅ State snapshot written — {state}, week {weeks}")
 
