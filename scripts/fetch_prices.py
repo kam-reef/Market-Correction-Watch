@@ -16,10 +16,29 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 
 def fetch(symbol, stooq_code):
     url = f"{BASE_URL}?s={stooq_code}&i=d"
-    df = pd.read_csv(url)
-    df["Date"] = pd.to_datetime(df["Date"])
-    df.sort_values("Date", inplace=True)
-    df.to_csv(RAW_DIR / f"{symbol}.csv", index=False)
+    try:
+        df = pd.read_csv(url)
+
+        # Normalize column names
+        df.columns = [c.strip().capitalize() for c in df.columns]
+
+        if "Date" not in df.columns:
+            print(f"⚠️  Skipping {symbol}: no Date column returned")
+            return
+
+        df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+        df = df.dropna(subset=["Date"])
+        df.sort_values("Date", inplace=True)
+
+        if df.empty:
+            print(f"⚠️  Skipping {symbol}: no valid rows")
+            return
+
+        df.to_csv(RAW_DIR / f"{symbol}.csv", index=False)
+        print(f"✅ Fetched {symbol}")
+
+    except Exception as e:
+        print(f"❌ Error fetching {symbol}: {e}")
 
 def main():
     for symbol, code in SYMBOLS.items():
