@@ -25,6 +25,11 @@ jobs:
       - name: Evaluate alerts
         run: python scripts/evaluate_alerts.py
 
+      - name: Copy data to docs for GitHub Pages
+        run: |
+          mkdir -p docs/data
+          cp data/output/alerts_snapshot.csv docs/data/alerts_snapshot.csv
+
       - name: Commit updated data
         run: |
           git config user.name "github-actions"
