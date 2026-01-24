@@ -13,6 +13,14 @@
   <p id="summary"></p>
 </section>
 
+<section id="history">
+  <strong>Recent history (last 12 weeks):</strong>
+  <div id="timeline" aria-label="Market risk state history"></div>
+  <div id="legend">
+    ▢ Nominal &nbsp; ▲ Downturn &nbsp; ▼ Recovery
+  </div>
+</section>
+
 <hr>
 
 <section id="disclaimer">
@@ -26,15 +34,40 @@
 </section>
 
 <script>
+/* ---------- Banner ---------- */
 fetch('./data/state_snapshot.json')
   .then(r => r.json())
   .then(d => {
+    const severityText = d.severity ? ` (Severity ${d.severity})` : '';
     document.getElementById('state').textContent =
-      `MARKET RISK STATE: ${d.state}${d.severity ? ' (Severity ' + d.severity + ')' : ''}`;
-    document.getElementById('summary').textContent = d.summary + ` (Week ${d.weeks_in_state})`;
+      `MARKET RISK STATE: ${d.state}${severityText}`;
+    document.getElementById('summary').textContent = d.summary;
   })
   .catch(() => {
     document.getElementById('state').textContent = 'State unavailable';
+  });
+
+/* ---------- Timeline ---------- */
+fetch('./data/state_history.csv')
+  .then(r => r.text())
+  .then(text => {
+    const lines = text.trim().split('\n');
+    if (lines.length <= 1) return;
+
+    const symbols = {
+      NOMINAL: '▢',
+      DOWNTURN: '▲',
+      RECOVERY: '▼'
+    };
+
+    const rows = lines.slice(1).map(l => l.split(','));
+    const recent = rows.slice(-12);
+
+    const timeline = recent
+      .map(r => symbols[r[1]] || '?')
+      .join(' ');
+
+    document.getElementById('timeline').textContent = timeline;
   });
 </script>
 
