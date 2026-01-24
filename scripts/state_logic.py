@@ -5,6 +5,7 @@ import csv
 from pathlib import Path
 import pandas as pd
 
+# Paths
 OUTPUT = Path("data/output")
 HISTORY_DIR = Path("data/history")
 
@@ -32,18 +33,19 @@ RECOVERY_ALERTS = [
     "IEF -3%",
 ]
 
+# Banner language (editable)
 BANNER_TEXT = {
     "NOMINAL": [
-        "Market conditions have remained broadly stable for the past {weeks} weeks.",
-        "No sustained risk signals have been active over the last {weeks} weeks.",
+        "Market conditions have remained broadly stable for the past {weeks}.",
+        "No sustained risk signals have been active over the last {weeks}.",
     ],
     "DOWNTURN": [
-        "Downturn indicators have persisted for {weeks} consecutive weeks.",
-        "Market stress signals have remained elevated for {weeks} weeks.",
+        "Downturn indicators have persisted for {weeks}.",
+        "Market stress signals have remained elevated for {weeks}.",
     ],
     "RECOVERY": [
-        "Recovery signals have been active for {weeks} weeks, supported by trend improvement.",
-        "Market conditions have shown sustained normalization over the past {weeks} weeks.",
+        "Recovery signals have been active for {weeks}, supported by trend improvement.",
+        "Market conditions have shown sustained normalization over the past {weeks}.",
     ],
 }
 
@@ -85,23 +87,23 @@ def main():
         severity = 0
 
     previous_weeks = weeks_in_state(history, state)
-weeks = previous_weeks + 1
+    weeks = previous_weeks + 1
 
-week_label = "week" if weeks == 1 else "weeks"
+    week_label = "week" if weeks == 1 else "weeks"
 
-summary = random.choice(BANNER_TEXT[state]).format(
-    weeks=f"{weeks} {week_label}"
-)
+    summary = random.choice(BANNER_TEXT[state]).format(
+        weeks=f"{weeks} {week_label}"
+    )
 
-snapshot = {
-    "date": str(date.today()),
-    "state": state,
-    "severity": severity,
-    "weeks_in_state": weeks,
-    "downturn_alerts": downturn_count,
-    "recovery_alerts": recovery_count,
-    "summary": summary,
-}
+    snapshot = {
+        "date": str(date.today()),
+        "state": state,
+        "severity": severity,
+        "weeks_in_state": weeks,
+        "downturn_alerts": downturn_count,
+        "recovery_alerts": recovery_count,
+        "summary": summary,
+    }
 
     # Write snapshot JSON
     with open(OUTPUT / "state_snapshot.json", "w") as f:
