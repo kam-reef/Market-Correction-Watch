@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Market Risk Monitor</title>
 </head>
 <body>
   <h1>Market Risk Alerts</h1>
-  <pre id="data">Loading...</pre>
+
+  <pre id="data">Loading market data…</pre>
 
   <script>
-    fetch('../data/output/alerts_snapshot.csv')
-      .then(r => r.text())
-      .then(t => document.getElementById('data').textContent = t);
+    fetch('./data/alerts_snapshot.csv')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to load data');
+        }
+        return response.text();
+      })
+      .then(text => {
+        document.getElementById('data').textContent = text;
+      })
+      .catch(err => {
+        document.getElementById('data').textContent =
+          'Data unavailable. Please check back later.';
+        console.error(err);
+      });
   </script>
 </body>
 </html>
