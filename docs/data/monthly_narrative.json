@@ -1,4 +1,40 @@
 {
+  "2025-01": {
+    "text": "2025-01: Market conditions were predominantly NOMINAL over 2 weeks, with no regime transitions. No elevated severity was observed."
+  },
+  "2025-02": {
+    "text": "2025-02: Market conditions were predominantly NOMINAL over 4 weeks, with no regime transitions. No elevated severity was observed."
+  },
+  "2025-03": {
+    "text": "2025-03: Market conditions were predominantly DOWNTURN over 4 weeks, with 1 regime transition. Maximum severity reached level 1."
+  },
+  "2025-04": {
+    "text": "2025-04: Market conditions were predominantly DOWNTURN over 4 weeks, with no regime transitions. Maximum severity reached level 2."
+  },
+  "2025-05": {
+    "text": "2025-05: Market conditions were predominantly RECOVERY over 5 weeks, with 1 regime transition. Maximum severity reached level 1."
+  },
+  "2025-06": {
+    "text": "2025-06: Market conditions were predominantly RECOVERY over 4 weeks, with no regime transitions. Maximum severity reached level 1."
+  },
+  "2025-07": {
+    "text": "2025-07: Market conditions were predominantly RECOVERY over 4 weeks, with no regime transitions. Maximum severity reached level 1."
+  },
+  "2025-08": {
+    "text": "2025-08: Market conditions were predominantly NOMINAL over 5 weeks, with 1 regime transition. Maximum severity reached level 1."
+  },
+  "2025-09": {
+    "text": "2025-09: Market conditions were predominantly NOMINAL over 4 weeks, with no regime transitions. No elevated severity was observed."
+  },
+  "2025-10": {
+    "text": "2025-10: Market conditions were predominantly NOMINAL over 5 weeks, with no regime transitions. No elevated severity was observed."
+  },
+  "2025-11": {
+    "text": "2025-11: Market conditions were predominantly NOMINAL over 4 weeks, with no regime transitions. No elevated severity was observed."
+  },
+  "2025-12": {
+    "text": "2025-12: Market conditions were predominantly NOMINAL over 4 weeks, with no regime transitions. No elevated severity was observed."
+  },
   "2026-01": {
     "text": "2026-01: Market conditions were predominantly NOMINAL over 3 weeks, with no regime transitions. No elevated severity was observed."
   }

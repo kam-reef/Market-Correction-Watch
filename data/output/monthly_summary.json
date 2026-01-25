@@ -1,4 +1,115 @@
 {
+  "2025-01": {
+    "weeks": 2,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 2
+    },
+    "transitions": 0,
+    "max_severity": 0
+  },
+  "2025-02": {
+    "weeks": 4,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 4
+    },
+    "transitions": 0,
+    "max_severity": 0
+  },
+  "2025-03": {
+    "weeks": 4,
+    "dominant_state": "DOWNTURN",
+    "weeks_by_state": {
+      "NOMINAL": 1,
+      "DOWNTURN": 3
+    },
+    "transitions": 1,
+    "max_severity": 1
+  },
+  "2025-04": {
+    "weeks": 4,
+    "dominant_state": "DOWNTURN",
+    "weeks_by_state": {
+      "DOWNTURN": 4
+    },
+    "transitions": 0,
+    "max_severity": 2
+  },
+  "2025-05": {
+    "weeks": 5,
+    "dominant_state": "RECOVERY",
+    "weeks_by_state": {
+      "DOWNTURN": 2,
+      "RECOVERY": 3
+    },
+    "transitions": 1,
+    "max_severity": 1
+  },
+  "2025-06": {
+    "weeks": 4,
+    "dominant_state": "RECOVERY",
+    "weeks_by_state": {
+      "RECOVERY": 4
+    },
+    "transitions": 0,
+    "max_severity": 1
+  },
+  "2025-07": {
+    "weeks": 4,
+    "dominant_state": "RECOVERY",
+    "weeks_by_state": {
+      "RECOVERY": 4
+    },
+    "transitions": 0,
+    "max_severity": 1
+  },
+  "2025-08": {
+    "weeks": 5,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "RECOVERY": 2,
+      "NOMINAL": 3
+    },
+    "transitions": 1,
+    "max_severity": 1
+  },
+  "2025-09": {
+    "weeks": 4,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 4
+    },
+    "transitions": 0,
+    "max_severity": 0
+  },
+  "2025-10": {
+    "weeks": 5,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 5
+    },
+    "transitions": 0,
+    "max_severity": 0
+  },
+  "2025-11": {
+    "weeks": 4,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 4
+    },
+    "transitions": 0,
+    "max_severity": 0
+  },
+  "2025-12": {
+    "weeks": 4,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 4
+    },
+    "transitions": 0,
+    "max_severity": 0
+  },
   "2026-01": {
     "weeks": 3,
     "dominant_state": "NOMINAL",
