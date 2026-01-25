@@ -31,6 +31,9 @@ jobs:
 
       - name: Generate risk state
         run: python scripts/state_logic.py
+      
+      - name: Generate monthly and quarterly summaries
+        run: python scripts/summarize_history.py
 
       - name: Copy data to docs for GitHub Pages
         run: |
@@ -38,6 +41,8 @@ jobs:
           cp data/output/alerts_snapshot.csv docs/data/alerts_snapshot.csv
           cp data/output/state_snapshot.json docs/data/state_snapshot.json
           cp data/history/state_history.csv docs/data/state_history.csv
+          cp data/output/monthly_summary.json docs/data/monthly_summary.json
+          cp data/output/quarterly_summary.json docs/data/quarterly_summary.json
 
       - name: Commit updated data
         run: |

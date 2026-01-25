@@ -1,0 +1,11 @@
+{
+  "2026-01": {
+    "weeks": 2,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 2
+    },
+    "transitions": 0,
+    "max_severity": 0
+  }
+}
