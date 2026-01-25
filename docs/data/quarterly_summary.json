@@ -55,7 +55,7 @@
     "max_severity": 0
   },
   "2026-Q1": {
-    "weeks": 3,
+    "weeks": 4,
     "dominant_state": "NOMINAL",
     "percent_by_state": {
       "NOMINAL": 100.0
@@ -63,7 +63,7 @@
     "transitions": 0,
     "longest_streak": {
       "state": "NOMINAL",
-      "weeks": 3
+      "weeks": 4
     },
     "max_severity": 0
   }
