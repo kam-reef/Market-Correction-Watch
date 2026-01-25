@@ -31,9 +31,6 @@ jobs:
 
       - name: Generate risk state
         run: python scripts/state_logic.py
-
-      - name: Backfill 1-year history
-        run: python scripts/backfill_history.py
       
       - name: Generate monthly and quarterly summaries
         run: python scripts/summarize_history.py
