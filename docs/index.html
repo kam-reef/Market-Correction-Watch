@@ -24,6 +24,11 @@
   </p>
 </section>
 
+<section id="quarterly-summary">
+  <p><strong>Quarterly summary:</strong></p>
+  <p id="quarterly-text">Loading quarterly summary…</p>
+</section>
+
 <hr>
 
 <section id="disclaimer">
@@ -84,6 +89,24 @@ fetch('./data/state_history.csv')
       .join(' ');
 
     document.getElementById('timeline').textContent = timeline;
+  });
+</script>
+
+<script>
+/* ---------- Quarterly Narrative ---------- */
+fetch('./data/quarterly_narrative.json')
+  .then(r => r.json())
+  .then(data => {
+    const periods = Object.keys(data).sort();
+    if (periods.length === 0) return;
+
+    const latest = periods[periods.length - 1];
+    document.getElementById('quarterly-text').textContent =
+      data[latest].text;
+  })
+  .catch(() => {
+    document.getElementById('quarterly-text').textContent =
+      'Quarterly summary unavailable.';
   });
 </script>
 
