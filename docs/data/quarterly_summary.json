@@ -1,4 +1,59 @@
 {
+  "2025-Q1": {
+    "weeks": 10,
+    "dominant_state": "NOMINAL",
+    "percent_by_state": {
+      "NOMINAL": 70.0,
+      "DOWNTURN": 30.0
+    },
+    "transitions": 1,
+    "longest_streak": {
+      "state": "NOMINAL",
+      "weeks": 7
+    },
+    "max_severity": 1
+  },
+  "2025-Q2": {
+    "weeks": 13,
+    "dominant_state": "RECOVERY",
+    "percent_by_state": {
+      "DOWNTURN": 46.2,
+      "RECOVERY": 53.8
+    },
+    "transitions": 1,
+    "longest_streak": {
+      "state": "RECOVERY",
+      "weeks": 7
+    },
+    "max_severity": 2
+  },
+  "2025-Q3": {
+    "weeks": 13,
+    "dominant_state": "NOMINAL",
+    "percent_by_state": {
+      "RECOVERY": 46.2,
+      "NOMINAL": 53.8
+    },
+    "transitions": 1,
+    "longest_streak": {
+      "state": "NOMINAL",
+      "weeks": 7
+    },
+    "max_severity": 1
+  },
+  "2025-Q4": {
+    "weeks": 13,
+    "dominant_state": "NOMINAL",
+    "percent_by_state": {
+      "NOMINAL": 100.0
+    },
+    "transitions": 0,
+    "longest_streak": {
+      "state": "NOMINAL",
+      "weeks": 13
+    },
+    "max_severity": 0
+  },
   "2026-Q1": {
     "weeks": 3,
     "dominant_state": "NOMINAL",

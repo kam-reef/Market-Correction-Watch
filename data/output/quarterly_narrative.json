@@ -1,4 +1,16 @@
 {
+  "2025-Q1": {
+    "text": "2025-Q1: Market conditions were predominantly NOMINAL across 10 weeks, with 1 regime transition. The longest uninterrupted streak was 7 weeks in NOMINAL. Maximum severity reached level 1."
+  },
+  "2025-Q2": {
+    "text": "2025-Q2: Market conditions were predominantly RECOVERY across 13 weeks, with 1 regime transition. The longest uninterrupted streak was 7 weeks in RECOVERY. Maximum severity reached level 2."
+  },
+  "2025-Q3": {
+    "text": "2025-Q3: Market conditions were predominantly NOMINAL across 13 weeks, with 1 regime transition. The longest uninterrupted streak was 7 weeks in NOMINAL. Maximum severity reached level 1."
+  },
+  "2025-Q4": {
+    "text": "2025-Q4: Market conditions were predominantly NOMINAL across 13 weeks, with no regime transitions. The longest uninterrupted streak was 13 weeks in NOMINAL. No elevated severity was observed."
+  },
   "2026-Q1": {
     "text": "2026-Q1: Market conditions were predominantly NOMINAL across 3 weeks, with no regime transitions. The longest uninterrupted streak was 3 weeks in NOMINAL. No elevated severity was observed."
   }
