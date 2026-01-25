@@ -34,6 +34,9 @@ jobs:
       
       - name: Generate monthly and quarterly summaries
         run: python scripts/summarize_history.py
+      
+      - name: Generate deterministic narratives
+        run: python scripts/narrate_summaries.py
 
       - name: Copy data to docs for GitHub Pages
         run: |
@@ -43,6 +46,8 @@ jobs:
           cp data/history/state_history.csv docs/data/state_history.csv
           cp data/output/monthly_summary.json docs/data/monthly_summary.json
           cp data/output/quarterly_summary.json docs/data/quarterly_summary.json
+          cp data/output/monthly_narrative.json docs/data/monthly_narrative.json
+          cp data/output/quarterly_narrative.json docs/data/quarterly_narrative.json
 
       - name: Commit updated data
         run: |
