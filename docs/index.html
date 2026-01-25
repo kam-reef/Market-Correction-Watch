@@ -3,48 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <title>Market Risk Monitor</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css" />
 </head>
 <body>
 
-<h1>Market Risk Monitor</h1>
+<body>
+  <section class="section">
+    <div class="container">
 
-<section id="banner">
-  <h2 id="state">Loading…</h2>
-  <p id="summary"></p>
-</section>
+      <h1 class="title">Market Risk Monitor</h1>
 
-<section id="history">
-  <p><strong>Recent history (last 12 weeks):</strong></p>
+      <div id="banner" class="notification">
+        <h2 id="state" class="subtitle">Loading…</h2>
+        <p id="summary"></p>
+      </div>
 
-  <pre id="timeline" aria-label="Market risk state history"></pre>
+      <div class="box">
+        <p class="has-text-weight-semibold">Recent history (last 12 weeks)</p>
+        <pre id="timeline"></pre>
+        <p class="is-size-7">
+          ▢ Nominal &nbsp;&nbsp; ▲ Downturn &nbsp;&nbsp; ▼ Recovery
+        </p>
+      </div>
 
-  <p id="legend">
-    <strong>Legend:</strong>
-    ▢ Nominal &nbsp;&nbsp; ▲ Downturn &nbsp;&nbsp; ▼ Recovery
-  </p>
-</section>
+      <div class="box">
+        <p class="has-text-weight-semibold">Quarterly summary</p>
+        <p id="quarterly-text"></p>
+      </div>
 
-<section id="quarterly-summary">
-  <p><strong>Quarterly summary:</strong></p>
-  <p id="quarterly-text">Loading quarterly summary…</p>
-</section>
+      <hr>
 
-<hr>
+      <div class="content is-size-7">
+        <p>
+          <strong>Disclaimer:</strong>
+          This project is for informational purposes only. It does not constitute
+          investment advice or a recommendation to buy or sell any security.
+          The system is intentionally conservative and slow‑moving, and is designed
+          to support disciplined long‑term decision‑making rather than short‑term
+          market timing.
+        </p>
 
-<section id="disclaimer">
-  <strong>Disclaimer:</strong>
-  This project is for informational purposes only.
+        <p>
+          <strong>Contact:</strong>
+          <a href="mailto:you@example.com">you@example.com</a>
+        </p>
+      </div>
 
-It does not constitute investment advice or a recommendation to buy or sell
-any security. The system is intentionally conservative and slow‑moving, and is
-designed to support disciplined long‑term decision‑making rather than
-short‑term market timing.
-</section>
-
-<section id="contact">
-  <strong>Contact:</strong>
-  <a href="mailto:you@example.com">you@example.com</a>
-</section>
+    </div>
+  </section>
 
 <script>
 /* ---------- Banner ---------- */
