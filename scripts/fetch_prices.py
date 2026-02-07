@@ -8,7 +8,7 @@ SYMBOLS = {
     "ARKK": "arkk.us",
     "HYG": "hyg.us",
     "IEF": "ief.us",
-    "VIX": "^vix"
+    "VIX": ".vix"
 }
 
 RAW_DIR = Path("data/raw")
