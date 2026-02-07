@@ -3,7 +3,7 @@ name: Weekly Market Risk Alerts
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 22 * * 5"
+    - cron: '0 22 * * 5'
 
 permissions:
   contents: write
