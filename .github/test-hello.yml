@@ -1,0 +1,16 @@
+# .github/workflows/scheduled-hello.yml
+
+name: Scheduled Hello
+
+on:
+  schedule:
+    # Runs every day at midnight UTC; adjust your cron spec as needed
+    - cron: '0 0 * * *'
+
+jobs:
+  hello:
+    name: Say Hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world
+        run: echo "Hello, world!"
