@@ -22,7 +22,7 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 
 def fetch(symbol: str, stooq_code: str) -> None:
     """
-    Fetch a single equity/CETF from Stooq and write it to CSV.
+    Fetch a single equity/ETF from Stooq and write it to CSV.
     """
     url = f"{BASE_URL}?s={stooq_code}&i=d"
     try:
@@ -66,7 +66,15 @@ def main() -> None:
         if "Date" not in df_vix.columns:
             print("⚠️  Skipping VIX: no Date column returned from yfinance")
         else:
+            # Normalize to Stooq-style six-column format:
+            #   Date, Open, High, Low, Close, Volume
+            df_vix["Date"] = (
+                pd.to_datetime(df_vix["Date"], errors="coerce")
+                .dt.tz_localize(None)
+                .dt.date
+            )
             df_vix = df_vix.dropna(subset=["Date"])
+            df_vix = df_vix[["Date", "Open", "High", "Low", "Close", "Volume"]]
             df_vix.sort_values("Date", inplace=True)
             df_vix.to_csv(RAW_DIR / "VIX.csv", index=False)
             print("✅ Fetched VIX")
