@@ -31,10 +31,10 @@ jobs:
 
       - name: Generate risk state
         run: python scripts/state_logic.py
-      
+
       - name: Generate monthly and quarterly summaries
         run: python scripts/summarize_history.py
-      
+
       - name: Generate deterministic narratives
         run: python scripts/narrate_summaries.py
 
@@ -56,7 +56,7 @@ jobs:
           git add data docs
           git commit -m "Update market alert snapshot" || exit 0
           git push
-      
+
       - name: Debug copied file
         run: |
           echo "=== docs/data ==="
