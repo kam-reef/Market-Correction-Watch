@@ -118,5 +118,14 @@
     },
     "transitions": 0,
     "max_severity": 0
+  },
+  "2026-02": {
+    "weeks": 1,
+    "dominant_state": "NOMINAL",
+    "weeks_by_state": {
+      "NOMINAL": 1
+    },
+    "transitions": 0,
+    "max_severity": 0
   }
 }

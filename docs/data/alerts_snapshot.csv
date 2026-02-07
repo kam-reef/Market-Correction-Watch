@@ -1,10 +1,10 @@
 alert,triggered
 SPY below 200MA,False
 SPY above 200MA,True
-QQQ below 100MA,False
+QQQ below 100MA,True
 QQQ -12% from high,False
 QQQ +15% from low,False
-ARKK -15% from high,False
+ARKK -15% from high,True
 ARKK +20% from low,False
 HYG -7%,False
 HYG +7%,False
