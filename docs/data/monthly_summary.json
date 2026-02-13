@@ -111,19 +111,19 @@
     "max_severity": 0
   },
   "2026-01": {
-    "weeks": 4,
+    "weeks": 5,
     "dominant_state": "NOMINAL",
     "weeks_by_state": {
-      "NOMINAL": 4
+      "NOMINAL": 5
     },
     "transitions": 0,
     "max_severity": 0
   },
   "2026-02": {
-    "weeks": 3,
+    "weeks": 2,
     "dominant_state": "NOMINAL",
     "weeks_by_state": {
-      "NOMINAL": 3
+      "NOMINAL": 2
     },
     "transitions": 0,
     "max_severity": 0
