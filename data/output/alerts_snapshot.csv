@@ -4,11 +4,11 @@ SPY above 200MA,True
 QQQ below 100MA,True
 QQQ -12% from high,False
 QQQ +15% from low,False
-ARKK -15% from high,True
+ARKK -15% from high,False
 ARKK +20% from low,False
 VIX > 25,False
 VIX > 30,False
-VIX < 20,False
+VIX < 20,True
 VIX < 18,False
 HYG -7%,False
 HYG +7%,False
