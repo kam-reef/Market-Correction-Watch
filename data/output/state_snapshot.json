@@ -1,10 +1,10 @@
 {
-  "date": "2026-02-20",
+  "date": "2026-02-27",
   "state": "NOMINAL",
   "severity": 0,
-  "weeks_in_state": 28,
+  "weeks_in_state": 29,
   "downturn_alerts": 1,
   "recovery_alerts": 2,
-  "summary": "Market conditions have remained broadly stable for the past 28 weeks.",
+  "summary": "Market conditions have remained broadly stable for the past 29 weeks.",
   "override": false
 }
